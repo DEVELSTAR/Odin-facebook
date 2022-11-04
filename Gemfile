@@ -79,3 +79,6 @@ group :production do
 end
 
 gem 'devise'
+
+# To check test coverage
+gem 'simplecov', require: false, group: :test

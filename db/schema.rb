@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_04_111156) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_04_114859) do
   create_table "friend_requests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "request_sender_id"
-    t.integer "request_receiver_id"
-    t.index ["request_receiver_id"], name: "index_friend_requests_on_request_receiver_id"
-    t.index ["request_sender_id"], name: "index_friend_requests_on_request_sender_id"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.index ["receiver_id"], name: "index_friend_requests_on_receiver_id"
+    t.index ["sender_id"], name: "index_friend_requests_on_sender_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -52,8 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_111156) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "friend_requests", "users", column: "request_receiver_id"
-  add_foreign_key "friend_requests", "users", column: "request_sender_id"
+  add_foreign_key "friend_requests", "users", column: "receiver_id"
+  add_foreign_key "friend_requests", "users", column: "sender_id"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "posts", "users", column: "author_id"

@@ -1,10 +1,16 @@
 class FriendshipsController < ApplicationController
+
+  def index
+    @friendships = Friendship.all
+    @user = User.find(params[:user_id])
+  end
+  
   def new
     @friendship = Friendship.new
   end
 
   def create
-    @friendship = current_user.friendships.create(friendship_params)
+    @friendship = current_user.accepted_friendships.build(friendship_params)
 
     if @friendship.save
       # flash[:success]

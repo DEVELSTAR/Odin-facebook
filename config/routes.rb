@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "posts#index"
   resources :users do
     resources :posts
+    resources :friend_requests
+    resources :friendships
   end
-  resources :friendships
-  resources :friend_requests
 end

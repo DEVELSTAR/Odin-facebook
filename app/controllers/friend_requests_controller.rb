@@ -9,9 +9,8 @@ class FriendRequestsController < ApplicationController
   end
 
   def create
-    @user = User.find(friend_request_params[:request_receiver_id])
-    @friend_request = @user.friend_requests.build(friend_request_params)
-
+    @friend_request = current_user.sent_friend_requests.build(friend_request_params)
+        
     if @friend_request.save
       flash.now[:success] = "Friend request sent."
     else
@@ -22,6 +21,6 @@ class FriendRequestsController < ApplicationController
   private
 
   def friend_request_params
-    params.require(:friend_request).permit(:request_sender_id, :request_receiver_id)
+    params.require(:friend_request).permit(:sender_id, :receiver_id)
   end
 end
