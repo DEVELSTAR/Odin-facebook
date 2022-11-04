@@ -3,10 +3,11 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
+    @users = User.all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:user_id])
   end
 
   def new
@@ -14,14 +15,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.create(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post
-      # flash[:success]
+      redirect_to user_post_path(current_user.id, @post.id)
+      flash[:success] = "New post created."
     else
       render :new, status: :unprocessable_entity
-      # flash
+      flash.now[:error] = "The post couldn't be created, please fix the errors."
     end
   end
 
