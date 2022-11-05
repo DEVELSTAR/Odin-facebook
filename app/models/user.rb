@@ -14,6 +14,8 @@ class User < ApplicationRecord
   
   has_many :comments, foreign_key: :commenter_id
   
+  has_many :likes
+  
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 
