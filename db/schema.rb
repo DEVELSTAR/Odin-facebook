@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_05_065558) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_05_091954) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "commenter_id", null: false
@@ -56,6 +56,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_065558) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "gender"
+    t.integer "age"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,4 +90,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_065558) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "profiles", "users"
 end

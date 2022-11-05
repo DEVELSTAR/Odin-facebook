@@ -18,6 +18,8 @@ class User < ApplicationRecord
   
   has_many :likes
   
+  has_one :profile
+  
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 

@@ -667,6 +667,18 @@
           null
         ]
       },
+      "/home/akibuddin/practice/odin-facebook/spec/factories/profiles.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/home/akibuddin/practice/odin-facebook/spec/factories/users.rb": {
         "lines": [
           1,
@@ -720,6 +732,8 @@
           1,
           null,
           1,
+          null,
+          1,
           1,
           null,
           1,
@@ -727,7 +741,7 @@
           null,
           null,
           1,
-          98,
+          127,
           null,
           null,
           1,
@@ -1138,6 +1152,25 @@
           null
         ]
       },
+      "/home/akibuddin/practice/odin-facebook/spec/helpers/profiles_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/akibuddin/practice/odin-facebook/spec/models/comment_spec.rb": {
         "lines": [
           1,
@@ -1178,6 +1211,38 @@
           null
         ]
       },
+      "/home/akibuddin/practice/odin-facebook/spec/models/profile_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/akibuddin/practice/odin-facebook/app/models/profile.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/home/akibuddin/practice/odin-facebook/spec/requests/comments_spec.rb": {
         "lines": [
           1,
@@ -1190,6 +1255,17 @@
         ]
       },
       "/home/akibuddin/practice/odin-facebook/spec/requests/likes_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/akibuddin/practice/odin-facebook/spec/requests/profiles_spec.rb": {
         "lines": [
           1,
           null,
@@ -1443,6 +1519,6 @@
         ]
       }
     },
-    "timestamp": 1667638455
+    "timestamp": 1667640109
   }
 }
