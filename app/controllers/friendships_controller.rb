@@ -13,6 +13,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.accepted_friendships.build(friendship_params)
 
     if @friendship.save
+      FriendRequestDestroyer.call(friendship_params)
       # flash[:success]
     else
       render :new, status: :unprocessable_entity

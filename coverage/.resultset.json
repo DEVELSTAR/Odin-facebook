@@ -749,6 +749,61 @@
           null
         ]
       },
+      "/home/akibuddin/practice/odin-facebook/spec/features/friend_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/akibuddin/practice/odin-facebook/spec/features/friendship_spec.rb": {
         "lines": [
           1,
@@ -1000,6 +1055,6 @@
         ]
       }
     },
-    "timestamp": 1667620517
+    "timestamp": 1667621018
   }
 }
