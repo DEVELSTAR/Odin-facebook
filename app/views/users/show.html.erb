@@ -1,4 +1,4 @@
-<div class="row m-2 p-5 justify-content-center">
+<div class="row m-2 p-4 justify-content-center">
   <div class="col-2 me-5 border rounded p-4 shadow-sm">
     <div class="d-flex flex-column w-75">
       <%= image_tag @user.gravatar_url(default: :mm),
@@ -20,22 +20,12 @@
       <% end %>
     <% end %>
 
-    <div class="d-flex">
-      <div class="col-5">
-        <p><b>Name</b></p>
-        <p><b>Gender</b></p>
-        <p><b>Age</b></p>
-        <p><b>Location</b></p>
-        <p><b>Joined</b></p>
-      </div>
-      <div class="col-7">
-        <% if @user.profile %>
-          <%= render "profiles/info", user: @user %>
-        <% else %>
-          <%= render "profiles/empty" %>
-        <% end %>
-        <p><%= @user.created_time_formatted %></p>
-      </div>
+    <div class="d-flex flex-column">
+      <% if @user.profile %>
+        <%= render "profiles/info", user: @user %>
+      <% else %>
+        <%= render "profiles/empty" %>
+      <% end %>
     </div>
     <% if current_user.can_send_request_to?(@user) %>
       <%= button_to "Add Friend", user_friend_requests_path(@user.id),
@@ -96,10 +86,22 @@
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-        <%= render "posts/user_posts", user: @user%>
+        <% if @user.posts.count.zero? %>
+          <div class="p-3 text-secondary">
+              <%= "No posts"%>
+          </div>
+        <% else %>
+          <%= render "posts/user_posts", user: @user%>
+        <% end %>
       </div>
       <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-        <%= render "friendships/friends", user: @user %>
+        <% if @user.friends.count.zero? %>
+          <div class="p-3 text-secondary">
+            <%= "No friends"%>
+          </div>
+        <% else %>
+          <%= render "friendships/friends", user: @user %>
+        <% end %>
       </div>
       <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
       <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>

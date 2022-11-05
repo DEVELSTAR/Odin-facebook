@@ -12,13 +12,10 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.accepted_friendships.build(friendship_params)
 
-    if @friendship.save
-      FriendRequestDestroyer.call(friendship_params)
-      # flash[:success]
-    else
-      render :new, status: :unprocessable_entity
-      # flash
-    end
+    return unless @friendship.save
+
+    FriendRequestDestroyer.call(friendship_params)
+    redirect_to request.referrer
   end
 
 
@@ -27,7 +24,9 @@ class FriendshipsController < ApplicationController
                                      friend_id: friendship_params[:friend_id]) ||
                   Friendship.find_by(user_id: friendship_params[:friend_id],
                                      friend_id: friendship_params[:user_id])
-    @friendship.destroy
+    return unless @friendship.destroy
+
+    redirect_to request.referrer
   end
   
   private

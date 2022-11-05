@@ -16,7 +16,12 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
 
-    @comment.save!
+    if @comment.save
+      redirect_to request.referrer
+      flash[:notice] = "Comment posted."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
