@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @posts = Post.all
-    @users = User.all
+    @posts = Post.all.order("updated_at DESC")
   end
 
   def show
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to user_post_path(current_user.id, @post.id)
+      redirect_to post_path(@post.id)
       flash[:success] = "New post created."
     else
       render :new, status: :unprocessable_entity
