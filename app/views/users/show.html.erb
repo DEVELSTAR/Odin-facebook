@@ -1,5 +1,6 @@
-<h2>Viewing <%= @user.username.capitalize %>'s Profile</h2>
+<h2><%= @user.username.capitalize %>'s Profile</h2>
 
+<%= image_tag @user.gravatar_url(default: :retro) %>
 <p>
   <b>Posts created: </b>
   <%= link_to "#{@user.posts.count}", user_posts_path(@user.id) %>

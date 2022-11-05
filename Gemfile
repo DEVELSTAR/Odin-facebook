@@ -80,5 +80,8 @@ end
 
 gem 'devise'
 
+# Use Gravatar gem for profile photos
+gem 'gravtastic'
+
 # To check test coverage
 gem 'simplecov', require: false, group: :test

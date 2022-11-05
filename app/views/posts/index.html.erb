@@ -1,11 +1,17 @@
-<h1>Posts</h1>
-
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <h2><%= link_to "#{post.title.capitalize}", post_path(post.id) %></h2>
-      <%= render "post", post: post %>
-    </li>
-  <% end %>
-</ul>
-<%= button_to "New Post", new_user_post_path(current_user.id), method: "get" %>
+<div class="container mt-3 pt-2">
+<h5 class="text-start text-secondary">Latest Posts</h5>
+<div class="row justify-content-start mt-2">
+  <div class="col-9">
+    <% @posts.each do |post| %>
+      <div class="container mt-2 mb-4 p-4 border shadow-sm rounded">
+        <%= render "post", post: post %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-3 shadow-sm">
+    <h6 class="text-secondary m-2">Suggested Users</h6>
+    <p>Coming soon</p>
+    <p>Coming soon</p>
+    <p>Coming soon</p>
+  </div>
+</div>

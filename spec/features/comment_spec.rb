@@ -16,7 +16,7 @@ RSpec.describe 'Comment', type: :feature do
 
   context 'when adding a comment' do
     before do
-      fill_in 'New Comment', with: 'some comment text'
+      fill_in 'Create Comment', with: 'some comment text'
       click_on 'Post Comment'
     end
 

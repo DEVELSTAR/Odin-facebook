@@ -21,7 +21,7 @@ RSpec.describe 'User', type: :feature do
       visit user_path(user2.id)
     end
     it 'displays the profile' do
-      expect(page).to have_content "Viewing #{user2.username.capitalize}'s Profile"
+      expect(page).to have_content "#{user2.username.capitalize}'s Profile"
     end
   end
   context 'when viewing own profile' do
